@@ -1,0 +1,257 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* พื้นหลังไล่เฉดสีพาสเทลนุ่มนวล */
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ff9a9e 100%);
+    color: #2d3436;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    max-width: 480px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(252, 182, 159, 0.4);
+}
+
+/* แถบสีด้านบนสุดของการ์ด */
+.card-banner {
+    height: 12px;
+    background: linear-gradient(90deg, #ff758c 0%, #ff7eb3 50%, #fad0c4 100%);
+}
+
+.card-content {
+    padding: 28px 32px 32px;
+}
+
+.header {
+    margin-bottom: 18px;
+}
+
+.badge {
+    display: inline-block;
+    background-color: #fff0f3;
+    color: #ff4d6d;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 99px;
+    margin-bottom: 8px;
+}
+
+.header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1e272e;
+}
+
+.nickname {
+    color: #ff6b81;
+}
+
+.image-wrapper {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 18px;
+    border: 3px solid #ffe3e8;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.profile-img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.image-wrapper:hover .profile-img {
+    transform: scale(1.03);
+}
+
+/* แถบป้ายแท็กหลากสี */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.tag {
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 10px;
+}
+
+.tag-pink {
+    background-color: #ffeaa7;
+    color: #d35400;
+}
+
+.tag-blue {
+    background-color: #dff9fb;
+    color: #0984e3;
+}
+
+.tag-green {
+    background-color: #e3fcef;
+    color: #007a33;
+}
+
+.bio {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: #4b5563;
+    margin-bottom: 22px;
+}
+
+.bio p {
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: #e84393;
+    font-weight: 600;
+}
+
+.highlight-green {
+    color: #007a33;
+    font-weight: 600;
+}
+
+.interaction-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #f1f2f6;
+    border-bottom: 1px solid #f1f2f6;
+    padding: 14px 0;
+    margin-bottom: 20px;
+}
+
+.like-btn {
+    background-color: #fff0f3;
+    border: 1px solid #ffccd5;
+    color: #ff4d6d;
+    padding: 8px 20px;
+    border-radius: 99px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.like-btn:hover {
+    background-color: #ffe3e8;
+    transform: translateY(-2px);
+}
+
+.like-btn.liked {
+    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(255, 117, 140, 0.4);
+}
+
+.likes-count {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #747d8c;
+}
+
+.comment-section h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2f3542;
+    margin-bottom: 12px;
+}
+
+.comment-form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.comment-input {
+    flex: 1;
+    background-color: #f8f9fa;
+    border: 1px solid #dfe4ea;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    color: #2f3542;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.comment-input:focus {
+    border-color: #ff758c;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(255, 117, 140, 0.15);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 0 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.comments-list {
+    list-style: none;
+    max-height: 180px;
+    overflow-y: auto;
+}
+
+.comment-item {
+    background-color: #fff9fa;
+    border: 1px solid #ffeef1;
+    padding: 10px 14px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+    animation: fadeIn 0.25s ease;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: #ff4d6d;
+    margin-bottom: 2px;
+    font-size: 0.8rem;
+}
+
+.comment-text {
+    color: #4b5563;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

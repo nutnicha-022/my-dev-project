@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me — Natnicha (Mew)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card">
+        <!-- แถบตกแต่งสีสันด้านบน -->
+        <div class="card-banner"></div>
+
+        <div class="card-content">
+            <div class="header">
+                <div class="badge">✨ IT Student • Voc. Cert. 2</div>
+                <h1>Natnicha <span class="nickname">(Mew)</span></h1>
+            </div>
+
+            <div class="image-wrapper">
+                <img src="me.png" alt="Natnicha" class="profile-img">
+            </div>
+
+            <!-- ป้ายแท็กจุดเด่น -->
+            <div class="tags">
+                <span class="tag tag-pink">🍜 Big Foodie</span>
+                <span class="tag tag-blue">🤝 Friendly</span>
+                <span class="tag tag-green">🍕 The Pizza Company</span>
+            </div>
+
+            <div class="bio">
+                <p>Hello! I’m <span class="highlight">Natnicha</span>, or simply <span class="highlight">Mew</span>. I’m currently a 2nd-year Vocational Certificate student majoring in <span class="highlight">Information Technology</span>.</p>
+                <p>I’m a big foodie who loves trying new dishes and meeting new people—I'm quite friendly and easy to get along with. Outside of classes, I also work part-time at <span class="highlight-green">The Pizza Company</span>.</p>
+            </div>
+
+            <div class="interaction-bar">
+                <button class="like-btn" onclick="toggleLike()">
+                    <span id="heartIcon">🤍</span> <span id="btnLabel">Like</span>
+                </button>
+                <span class="likes-count" id="likesText">0 likes</span>
+            </div>
+
+            <div class="comment-section">
+                <h3>💬 Comments</h3>
+                <div class="comment-form">
+                    <input type="text" id="commentInput" class="comment-input" placeholder="Say hi to Mew..." onkeypress="handleKeyPress(event)">
+                    <button class="submit-btn" onclick="addComment()">Post</button>
+                </div>
+                <ul class="comments-list" id="commentsList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let likes = 0;
+        let hasLiked = false;
+
+        function toggleLike() {
+            const btn = document.querySelector('.like-btn');
+            const heart = document.getElementById('heartIcon');
+            const label = document.getElementById('btnLabel');
+            const likesText = document.getElementById('likesText');
+
+            if (!hasLiked) {
+                likes++;
+                hasLiked = true;
+                btn.classList.add('liked');
+                heart.textContent = '❤️';
+                label.textContent = 'Liked';
+            } else {
+                likes--;
+                hasLiked = false;
+                btn.classList.remove('liked');
+                heart.textContent = '🤍';
+                label.textContent = 'Like';
+            }
+            likesText.textContent = `${likes} ${likes === 1 ? 'like' : 'likes'}`;
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                addComment();
+            }
+        }
+
+        function addComment() {
+            const input = document.getElementById('commentInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const list = document.getElementById('commentsList');
+            const li = document.createElement('li');
+            li.className = 'comment-item';
+            li.innerHTML = `
+                <div class="comment-author">Visitor</div>
+                <div class="comment-text">${text}</div>
+            `;
+
+            list.insertBefore(li, list.firstChild);
+            input.value = '';
+        }
+    </script>
+
+</body>
+</html>
